@@ -1,0 +1,135 @@
+\documentclass[10pt,a4paper]{article}
+
+% PDF version and output
+\pdfoutput=1        % force the execution of pdflatex
+\pdfminorversion=7  % newest PDF version (1.7)
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{bookmark}   % loads hyperref
+
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm,
+    top=40mm,
+    bottom=20mm,
+}
+
+% Informations
+\author{Riccardo Finotello}
+\title{Normal Ordering of a Free Boson}
+\date{\today}
+
+% Hyperref informations
+\hypersetup
+{
+    pdftitle={Normal Ordering of a Free Boson},
+    pdfsubject={Conformal Field Theory},
+    pdfauthor={Riccardo Finotello},
+    pdfkeywords={CFT, free boson, normal order, radial order},
+    pdfstartview={FitH},
+    pdfcreator={pdfTeX Tex Live 2015/Debian},
+    pdfproducer={pdfLaTeX},
+    pdfduplex={DuplexFlipLongEdge},
+    pdflang={en-GB},
+    pdfpagemode={UseOutlines},
+    bookmarks={true},
+    bookmarksopen={true},
+    bookmarksnumbered={true},
+    hidelinks
+}
+
+\begin{document}
+    \pagenumbering{gobble}
+
+    \maketitle
+
+    Consider the boson field:
+    \begin{equation*}
+        X^{\mu}\left( z \right) = x^{\mu} + \alpha' p^{\mu} \ln\left( z \right)
+        + i \sqrt{\frac{\alpha'}{2}} \sum\limits_{n \in \mathbb{Z}\backslash
+        \left\lbrace 0 \right\rbrace} \frac{\alpha_n^{\mu}}{n} z^{-n},
+    \end{equation*}
+    and the commutation relations:
+    \begin{align*}
+        \left[ x^{\mu}, p^{\nu} \right] &= i \eta^{\mu \nu},
+        \\
+        \left[ \alpha_n^{\mu}, \alpha_m^{\nu} \right] &= n \eta^{\mu \nu}
+        \delta_{n+m,0},
+    \end{align*}
+    where $\delta_{i,j}$ is the Kronecker delta.
+
+    Then consider the radially ordered product between $X^{\mu}\left( z
+    \right)$ and $X^{\nu}\left( w \right)$ ($\left| z \right| > \left| w
+    \right|$):
+    \begin{align*}
+        &\mathrm{R}\left( X^{\mu}\left( z \right) X^{\nu}\left( w \right)
+        \right) =
+        \\
+        &= \left( x^{\mu} + \alpha' p^{\mu} \ln\left( z \right) + i
+        \sqrt{\frac{\alpha'}{2}} \sum\limits_{n \in \mathbb{Z}\backslash
+        \left\lbrace 0 \right\rbrace} \frac{\alpha_n^{\mu}}{n} z^{-n} \right)
+        \left( y^{\nu} + \alpha' q^{\nu} \ln\left( w \right) + i
+        \sqrt{\frac{\alpha'}{2}} \sum\limits_{m \in \mathbb{Z}\backslash
+        \left\lbrace 0 \right\rbrace} \frac{\alpha_m^{\nu}}{m} w^{-m} \right) =
+        \\
+        &= x^{\mu} y^{\nu} + \alpha' x^{\mu} q^{\nu} \ln\left( w \right) + i
+        \sqrt{\frac{\alpha'}{2}} x^{\mu} \sum\limits_{m \in
+        \mathbb{Z}\backslash \left\lbrace 0 \right\rbrace}
+        \frac{\alpha^{\nu}_m}{m} w^{-m} +
+        \\
+        &+ \alpha' p^{\mu} y^{\nu} \ln\left( z \right) + \alpha'^2 p^{\mu}
+        q^{\nu} \ln\left( z \right) \ln\left( w \right) + i \alpha'
+        \sqrt{\frac{\alpha'}{2}} p^{\mu} \ln\left( z \right) \sum\limits_{m \in
+        \mathbb{Z}\backslash \left\lbrace 0 \right\rbrace}
+        \frac{\alpha^{\nu}_m}{m} w^{-m} +
+        \\
+        &+ i \sqrt{\frac{\alpha'}{2}} \sum\limits_{n \in \mathbb{Z}\backslash
+        \left\lbrace 0 \right\rbrace} \frac{\alpha^{\mu}_n}{n} y^{\nu} z^{-n} +
+        i \alpha' \sqrt{\frac{\alpha'}{2}}         \sum\limits_{n \in
+        \mathbb{Z}\backslash \left\lbrace 0 \right\rbrace}
+        \frac{\alpha^{\mu}_n}{n} q^{\nu} \ln\left( w \right) z^{-n} -
+        \frac{\alpha'}{2} \sum\limits_{n \in \mathbb{Z}\backslash \left\lbrace
+        0 \right\rbrace} \sum\limits_{m \in \mathbb{Z}\backslash \left\lbrace 0
+        \right\rbrace} \frac{\alpha^{\mu}_n}{n} \frac{\alpha^{\nu}_m}{m} w^{-m}
+        =
+        \\
+        &= \colon X^{\mu}\left( z \right) X^{\nu}\left( w \right) \colon -
+        \frac{\alpha'}{2} \sum\limits_{n = 1}^{+\infty} \sum\limits_{m
+        =1}^{+\infty} \frac{1}{nm} \left[ \alpha_n^{\mu}, \alpha_{-m}^{\nu}
+        \right] z^{-n} w^m + \left[ p^{\mu}, y^{\nu} \right] \ln\left( z
+        \right) =
+        \\
+        &= \colon X^{\mu}\left( z \right) X^{\nu}\left( w \right) \colon -
+        \eta^{\mu\nu} \frac{\alpha'}{2} \sum\limits_{n = 1}^{+\infty}
+        \frac{1}{n} \left( \frac{w}{z} \right)^n - i \eta^{\mu\nu} \ln\left( z
+        \right) =
+        \\
+        &= \colon X^{\mu}\left( z \right) X^{\nu}\left( w \right) \colon -
+        \eta^{\mu\nu} \frac{\alpha'}{2} \left( \ln\left( 1 - \frac{w}{z}
+        \right) - \ln\left( z \right) \right) =
+        \\
+        &= \colon X^{\mu}\left( z \right) X^{\nu}\left( w \right) \colon -
+        \eta^{\mu\nu} \frac{\alpha'}{2} \ln\left( z - w \right).
+    \end{align*}
+
+    Then, since:
+    \begin{equation*}
+        \mathrm{R}\left( X^{\mu}\left( z \right) X^{\nu}\left( w \right)
+        \right) = \colon X^{\mu}\left( z \right) X^{\nu}\left( w \right) \colon
+        + \left\langle X^{\mu}\left( z \right) X^{\nu}\left( w \right)
+        \right\rangle,
+    \end{equation*}
+    we find:
+    \begin{equation*}
+        \left\langle X^{\mu}\left( z \right) X^{\nu}\left( w \right)
+        \right\rangle = - \eta^{\mu\nu} \frac{\alpha'}{2} \ln\left( z - w
+        \right).
+    \end{equation*}
+
+\end{document}

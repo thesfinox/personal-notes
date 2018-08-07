@@ -1,0 +1,102 @@
+\documentclass[10pt,a4paper]{article}
+
+% PDF version and output
+\pdfoutput=1        % force the execution of pdflatex
+\pdfminorversion=7  % newest PDF version (1.7)
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{bookmark}   % loads hyperref
+
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm,
+    top=40mm,
+    bottom=20mm,
+}
+
+% Informations
+\author{Riccardo Finotello}
+\title{Operator Product Expansion of a Vertex Operator}
+\date{\today}
+
+% Hyperref informations
+\hypersetup
+{
+    pdftitle={Operator Product Expansion of a Vertex Operator},
+    pdfsubject={Conformal Field Theory},
+    pdfauthor={Riccardo Finotello},
+    pdfkeywords={CFT, free boson, normal order, radial order},
+    pdfstartview={FitH},
+    pdfcreator={pdfTeX Tex Live 2015/Debian},
+    pdfproducer={pdfLaTeX},
+    pdfduplex={DuplexFlipLongEdge},
+    pdflang={en-GB},
+    pdfpagemode={UseOutlines},
+    bookmarks={true},
+    bookmarksopen={true},
+    bookmarksnumbered={true},
+    hidelinks
+}
+
+\begin{document}
+    \pagenumbering{gobble}
+
+    \maketitle
+
+    Consider:
+    \begin{align*}
+        \left\langle X^{\alpha}\left( z \right) X^{\beta}\left( w \right)
+        \right\rangle &= - \eta^{\alpha\beta} \ln\left( z - w \right),
+        \\
+        \left\langle \partial_z X^{\alpha}\left( z \right) X^{\beta}\left( w
+        \right) \right\rangle &= - \eta^{\alpha\beta} \frac{1}{z-w},
+        \\
+        \left\langle \partial_z X^{\alpha}\left( z \right) \partial_w
+        X^{\beta}\left( w \right) \right\rangle &= - \eta^{\alpha\beta}
+        \frac{1}{\left( z - w \right)^2}.
+    \end{align*}
+
+    Then:
+    \begin{align*}
+        \partial_z X^{\alpha}\left( z \right) \colon e^{i k_{\beta}
+        X^{\beta}\left( w \right)} \colon &= \partial_z X^{\alpha}\left( z
+        \right) \colon 1 \colon + \partial_z X^{\alpha}\left( z \right) \left(
+        i k_{\beta} \right) \colon X^{\beta}\left( w \right) \colon +
+        \\
+        &+ \frac{1}{2} \partial_z X^{\alpha}\left( z \right) \left( i^2
+        k_{\beta} k_{\gamma} \right) \colon X^{\beta}\left( w \right)
+        X^{\gamma}\left( w \right) \colon + \ldots =
+        \\
+        &= \partial_z X^{\alpha}\left( z \right) \colon 1 \colon + i k_{\beta}
+        \left\langle \partial_z X^{\alpha}\left( z \right) X^{\beta}\left( w
+        \right) \right\rangle -
+        \\
+        &- \frac{1}{2} k_{\beta} k_{\gamma} \left( \left\langle \partial_z
+        X^{\alpha}\left( z \right) X^{\beta}\left( w \right) \right\rangle
+        X^{\gamma}\left( w \right) + \left\langle \partial_z X^{\alpha}\left( z
+        \right) X^{\gamma}\left( w \right) \right\rangle X^{\beta}\left( w
+        \right) \right) + \ldots =
+        \\
+        &= \partial_z X^{\alpha}\left( z \right) + \frac{i k^{\alpha}}{z - w} -
+        \frac{k^{\alpha}}{z - w} k \cdot X\left( w \right) + \ldots =
+        \\
+        &= \frac{i k^{\alpha}}{z - w} \colon \sum\limits_{n = 0}^{+\infty}
+        \frac{\left( i k \cdot X\left( w \right) \right)^n}{n!} =
+        \\
+        &= \frac{i k^{\alpha}}{z - w} \colon e^{i k \cdot X\left( w \right)}
+        \colon.
+    \end{align*}
+
+    Therefore:
+    \begin{equation*}
+        \partial_z X^{\alpha}\left( z \right) \colon e^{i k \cdot X\left( w
+        \right)} \colon = \frac{i k^{\alpha}}{z - w} \colon e^{i k \cdot
+        X\left( w \right)} \colon.
+    \end{equation*}
+\end{document}

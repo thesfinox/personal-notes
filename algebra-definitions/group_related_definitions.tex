@@ -1,0 +1,160 @@
+\documentclass[10pt,a4paper]{article}
+
+% PDF version and output
+\pdfoutput=1        % force the execution of pdflatex
+\pdfminorversion=7  % newest PDF version (1.7)
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{bookmark}   % loads hyperref
+
+\geometry{
+    a4paper,
+    left=30mm,
+    right=30mm,
+    top=40mm,
+    bottom=40mm,
+}
+
+% Informations
+\author{Riccardo Finotello}
+\title{Algebra Basic Definitions}
+\date{}
+
+% Hyperref informations
+\hypersetup
+{
+    pdftitle={Basic Definitions},
+    pdfsubject={Lie Groups},
+    pdfauthor={Riccardo Finotello},
+    pdfkeywords={lie groups, algebra, mathematics, definitions, geometry},
+    pdfstartview={FitH},
+    pdfcreator={pdfTeX Tex Live 2015/Debian},
+    pdfproducer={pdfLaTeX},
+    pdfduplex={DuplexFlipLongEdge},
+    pdflang={en-GB},
+    pdfpagemode={UseOutlines},
+    bookmarksopen={true},
+    bookmarksnumbered={true},
+    hidelinks
+}
+
+\renewcommand\labelenumii{\theenumi\alph{enumii}.}
+
+\begin{document}
+    \pagenumbering{gobble}
+
+    \maketitle
+
+    \begin{itemize}
+        \item \textbf{Semigroup} $\left( \mathrm{G}, \cdot \right)$
+            $\longrightarrow$ e.g.: $\left( \mathds{N}\: \backslash
+            \left\lbrace 0 \right\rbrace,\ + \right)$, $\left( \mathds{Z},\
+            \mathrm{min} \right)$:
+            \begin{enumerate}[i)]
+                \item $\mathrm{G}$ is a \textit{set},
+                \item $\cdot \colon \mathrm{G} \times \mathrm{G} \rightarrow
+                    \mathrm{G},\; \left( g, h \right) \mapsto l\; \mid\;
+                    \left( g \cdot h \right) \cdot l = g \cdot \left( h \cdot l
+                    \right)\;\;\; \forall g,h,l \in \mathrm{G}$.
+            \end{enumerate}
+
+        \item \textbf{Monoid} $\left( \mathrm{M}, \cdot \right)$
+            $\longrightarrow$ e.g.: $\left( \mathds{N},\ + \right), \left(
+            \mathds{N}\: \backslash \left\lbrace 0 \right\rbrace,\ \cdot
+            \right)$:
+            \begin{enumerate}[i)]
+                \item $\mathrm{M}$ is a \textit{semigroup},
+                \item $\exists\, \mathds{1}_M\; \mid\; m \cdot \mathds{1}_M =
+                    \mathds{1}_M \cdot m = m\;\;\; \forall m \in \mathrm{M}$.
+            \end{enumerate}
+
+        \item \textbf{Group} $\left( \mathds{G}, \cdot \right)$
+            $\longrightarrow$ e.g.: $\left( \mathds{Z}_n,\ \cdot \right)$,
+            $\left( \mathrm{S}_n,\ \cdot \right)$, $\left( \mathrm{SO}\left( n
+            \right),\ \cdot \right)$:
+            \begin{enumerate}[i)]
+                \item $\mathds{G}$ is a \textit{monoid},
+                \item $\forall g \in \mathds{G}\; \exists\, g^{-1} \in
+                    \mathds{G}\; \mid\; g \cdot g^{-1} = g^{-1} \cdot g =
+                    \mathds{1}_{\mathds{G}}$.
+            \end{enumerate}
+
+        \item \textbf{Ring} $\left( \mathds{R},\ +,\ \cdot \right)$
+            $\longrightarrow$ e.g.: $\left( \mathds{Z},\ +,\ \cdot \right)$,
+            $\mathrm{End}\left( \mathds{G} \right)$ where $\mathds{G}$ is an
+            \textit{abelian group}:
+            \begin{enumerate}[i)]
+                \item $\left( \mathds{R},\ + \right)$ is an \textit{abelian
+                    group} (i.e. $g + h = h + g\;\;\; \forall g,h \in
+                    \mathds{R}$),
+                \item $\left( \mathds{R},\ \cdot \right)$ is a \textit{monoid},
+                \item $r \cdot \left( s + t \right) = r \cdot s + r \cdot
+                    t\;\;\; \forall r,s,t \in \mathds{R}$,
+                \item $\left( r + s \right) \cdot t = r \cdot t + s \cdot
+                    t\;\;\; \forall r,s,t \in \mathds{R}$.
+            \end{enumerate}
+
+        \item \textbf{Division ring} $\left( \mathrm{R},\ +,\ \cdot \right)$
+            $\longrightarrow$ e.g.: $\left( \mathds{H},\ +,\ \cdot \right)$:
+            \begin{enumerate}[i)]
+                \item $\left( \mathrm{R},\ +,\ \cdot \right)$ is a \textit{ring},
+                \item $\forall r \in \mathrm{R}\; \exists\, r^{-1} \in
+                    \mathrm{R}\; \mid\; r \cdot r^{-1} = r^{-1} \cdot r =
+                    \mathds{1}_{\mathrm{R}}$.
+            \end{enumerate}
+
+        \item \textbf{Field} $\left( \mathds{F},\ +,\ \cdot \right)$
+            $\longrightarrow$ e.g.: $\left( \mathds{C},\ +,\ \cdot \right)$:
+            \begin{enumerate}[i)]
+                \item $\left( \mathds{F},\ +,\ \cdot \right)$ is a
+                    \textit{commutative ring} (i.e. $f \cdot g = g \cdot
+                    f\;\;\; \forall f,g \in \mathds{F}$),
+                \item $\exists\, \mathds{1}_{\mathds{F}} \in \mathds{F}\;
+                    \mid\; \mathds{1}_{\mathds{F}} \cdot f = f \cdot
+                    \mathds{1}_{\mathds{F}} = f\;\;\; \forall f \in \mathds{F}$.
+            \end{enumerate}
+
+        \item $\mathrm{R}$\textbf{-module} $\mathrm{M}$ $\longrightarrow$ e.g.:
+            $\mathrm{C}^{\infty}\left( \mathrm{M} \right)$-module of $X \in
+            \Gamma\left( \mathrm{M},\ \mathrm{TM} \right)$:
+            \begin{enumerate}[i)]
+                \item $\left( \mathrm{M},\ + \right)$ is an \textit{abelian
+                    group},
+                \item $\left( \mathrm{R},\ +,\ \cdot \right)$ is a
+                    \textit{ring},
+                \item $\cdot \colon \mathrm{R} \times \mathrm{M} \rightarrow
+                    \mathrm{M},\; \left( r, m \right) \mapsto r \cdot m\; \mid
+                    \; r \cdot \left( m + n \right) = r \cdot m + r \cdot
+                    n\;\;\; \forall r \in \mathrm{R},\; \forall m,n \in
+                    \mathrm{M}$,
+                \item $\cdot \colon \mathrm{R} \times \mathrm{M} \rightarrow
+                    \mathrm{M},\; \left( r, m \right) \mapsto r \cdot m\; \mid
+                    \; \left( r + s \right) \cdot m = r \cdot m + s
+                    \cdot m\;\;\; \forall r,s \in \mathrm{R},\; \forall m \in
+                    \mathrm{M}$,
+                \item $\cdot \colon \mathrm{R} \times \mathrm{M} \rightarrow
+                    \mathrm{M},\; \left( r, m \right) \mapsto r \cdot m\; \mid
+                    \; \left( r \cdot s \right) \cdot m = r \cdot \left( s
+                    \cdot m \right)\;\;\; \forall r,s \in \mathrm{R},\; \forall
+                    m \in \mathrm{M}$,
+                \item $\cdot \colon \mathrm{R} \times \mathrm{M} \rightarrow
+                    \mathrm{M},\; \left( r, m \right) \mapsto r \cdot m\; \mid
+                    \; \mathds{1}_{\mathrm{R}} \cdot m = m \cdot
+                    \mathds{1}_{\mathrm{R}} = m\; \forall m \in \mathrm{M}$.
+            \end{enumerate}
+
+        \item $\mathds{F}$\textbf{-vector space} $\mathrm{V}$ $\longrightarrow$
+            e.g.: $\left( \mathds{R}^n,\ +,\ \cdot \right)$
+            \begin{enumerate}[i)]
+                \item $\mathrm{V}$ is a $\mathds{F}$\textit{-module},
+                \item $\mathds{F}$ is a \textit{field}.
+            \end{enumerate}
+    \end{itemize}
+\end{document}

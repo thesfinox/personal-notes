@@ -1,0 +1,124 @@
+\documentclass[10pt,a4paper]{article}
+
+% PDF version and output
+\pdfoutput=1        % force the execution of pdflatex
+\pdfminorversion=7  % newest PDF version (1.7)
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{bookmark}   % loads hyperref
+
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm,
+    top=40mm,
+    bottom=20mm,
+}
+
+% Informations
+\author{Riccardo Finotello}
+\title{Normal Ordering of a Free Boson}
+\date{\today}
+
+% Hyperref informations
+\hypersetup
+{
+    pdftitle={Normal Ordering of a Free Boson},
+    pdfsubject={Conformal Field Theory},
+    pdfauthor={Riccardo Finotello},
+    pdfkeywords={CFT, free boson, normal order, radial order},
+    pdfstartview={FitH},
+    pdfcreator={pdfTeX Tex Live 2015/Debian},
+    pdfproducer={pdfLaTeX},
+    pdfduplex={DuplexFlipLongEdge},
+    pdflang={en-GB},
+    pdfpagemode={UseOutlines},
+    bookmarks={true},
+    bookmarksopen={true},
+    bookmarksnumbered={true},
+    hidelinks
+}
+
+\begin{document}
+    \pagenumbering{gobble}
+
+    \maketitle
+
+    Consider the holomorphic field $\partial_z X\left( z \right)$ (conformal
+    weight $\left( 1, 0 \right)$):
+    \begin{align*}
+        \partial_z X\left( z \right) &= -i \sqrt{\frac{\alpha'}{2}}
+        \sum\limits_{n \in \mathbb{Z}} \alpha_n z^{-n-1} =
+        \\
+        &= -i \sqrt{\frac{\alpha'}{2}} \sum\limits_{n = 0}^{+\infty} \left(
+        \alpha_n z^{-n-1} + \alpha_{-n-1} z^n \right),
+    \end{align*}
+    and the commutation relation:
+    \begin{equation*}
+        \left[ \alpha_n, \alpha_m \right] = n \delta_{n+m,0},
+    \end{equation*}
+    where $\delta_{i,j}$ is the Kronecker delta.
+
+    Then the radially ordered product between $\partial_z X\left( z \right)$
+    and $\partial_w X\left( w \right)$ ($\left| z \right| > \left| w \right|$)
+    is:
+    \begin{align*}
+        &\mathrm{R}\left( \partial_z X\left( z \right) \partial_w X\left( w
+        \right) \right) =
+        \\
+        &= -\frac{\alpha'}{2} \sum\limits_{n = 0}^{+\infty} \sum\limits_{m =
+        0}^{+\infty} \left( \alpha_n \alpha_m z^{-n-1} w^{-m-1} + \right.
+        \\
+        &\left. + \alpha_n \alpha_{-m-1} z^{-n-1}
+        w^m + \alpha_{-n-1} \alpha_m z^n w^{-m-1} + \alpha_{-n-1} \alpha_{-m-1}
+        z^n w^m \right) =
+        \\
+        &= \colon \partial_z X\left( z \right) \partial_w X\left( w \right)
+        \colon - \frac{\alpha'}{2} \sum\limits_{n = 0}^{+\infty} \sum\limits_{m
+        = 0}^{+\infty} \left[ \alpha_n, \alpha_{-m-1} \right] z^{-n-1} w^m =
+        \\
+        &= \colon \partial_z X\left( z \right) \partial_w X\left( w \right)
+        \colon - \frac{\alpha'}{2} \sum\limits_{n = 0}^{+\infty} n z^{-n-1}
+        w^{n-1} =
+        \\
+        &= \colon \partial_z X\left( z \right) \partial_w X\left( w \right)
+        \colon + \frac{1}{zw} \frac{\alpha'}{2} \sum\limits_{n = 1}^{+\infty} n
+        \left( \frac{w}{z} \right)^n =
+        \\
+        &= \colon \partial_z X\left( z \right) \partial_w X\left( w \right)
+        \colon - \frac{1}{zw} \frac{\alpha'}{2} \frac{ w / z }{\left( 1 - w / z
+        \right)^2} =
+        \\
+        &= \colon \partial_z X\left( z \right) \partial_w X\left( w \right)
+        \colon - \frac{\alpha'}{2} \frac{1}{\left( z - w \right)^2}.
+    \end{align*}
+
+    Then, since:
+    \begin{equation*}
+        \mathrm{R}\left( \partial_z X\left( z \right) \partial_w X\left( w
+        \right) \right) = \colon \partial_z X\left( z \right) \partial_w X\left(
+        w \right) \colon + \left\langle \partial_z X\left( z \right) \partial_w
+        X\left( w \right) \right\rangle,
+    \end{equation*}
+    we find:
+    \begin{equation*}
+        \left\langle \partial_z X\left( z \right) \partial_w X\left( w \right)
+        \right\rangle = - \frac{\alpha'}{2} \frac{1}{\left( z - w \right)^2}.
+    \end{equation*}
+
+    Then:
+    \begin{align*}
+        T\left( z \right) &= \frac{2}{\alpha'} \colon \partial_z X\left( z
+        \right) \partial_z X\left( z \right) \colon =
+        \\
+        &= \lim\limits_{w \to z} \left[ \frac{2}{\alpha'} \mathrm{R}\left(
+        \partial_z X\left( w \right) \partial_z X\left( z \right) \right) +
+        \frac{1}{\left( w - z \right)^2} \right].
+    \end{align*}
+
+\end{document}

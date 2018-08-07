@@ -1,0 +1,146 @@
+\documentclass[10pt,a4paper]{article}
+
+% PDF version and output
+\pdfoutput=1        % force the execution of pdflatex
+\pdfminorversion=7  % newest PDF version (1.7)
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{bookmark}   % loads hyperref
+
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm,
+    top=40mm,
+    bottom=20mm,
+}
+
+% Informations
+\author{Riccardo Finotello}
+\title{Conformal Weight of a Vertex Operator}
+\date{\today}
+
+% Hyperref informations
+\hypersetup
+{
+    pdftitle={Conformal Weight of a Vertex Operator},
+    pdfsubject={Conformal Field Theory},
+    pdfauthor={Riccardo Finotello},
+    pdfkeywords={CFT, free boson, normal order, radial order},
+    pdfstartview={FitH},
+    pdfcreator={pdfTeX Tex Live 2015/Debian},
+    pdfproducer={pdfLaTeX},
+    pdfduplex={DuplexFlipLongEdge},
+    pdflang={en-GB},
+    pdfpagemode={UseOutlines},
+    bookmarks={true},
+    bookmarksopen={true},
+    bookmarksnumbered={true},
+    hidelinks
+}
+
+\begin{document}
+    \pagenumbering{gobble}
+
+    \maketitle
+
+    Consider:
+    \begin{align*}
+        T\left( z \right) &= \frac{1}{2} \eta_{\alpha\beta} \colon \partial_z
+        X^{\alpha}\left( z \right) X^{\beta}\left( z \right) \colon,
+        \\
+        V^{\alpha\beta}\left( k, w \right) &= \colon \partial_w
+        X^{\alpha}\left( w \right) \partial_w X^{\beta}\left( w \right) \colon e^{i k
+        \cdot X\left( w \right)}.
+    \end{align*}
+
+    Then for $z \to w$:
+    \begin{align*}
+        T\left( z \right) V^{\mu\nu}\left( k, w \right) &= \frac{1}{2}
+        \eta_{\alpha\beta} \colon \partial_z X^{\alpha}\left( z \right)
+        \partial_z X^{\beta}\left( z \right) \colon \colon \partial_w
+        X^{\mu}\left( w \right) \partial_w X^{\nu}\left( w \right) e^{i k \cdot
+        X\left( w \right)} \colon =
+        \\
+        &= \frac{1}{2} \eta_{\alpha\beta} \left( \left\langle \partial_z
+        X^{\alpha}\left( z \right) \partial_w X^{\mu}\left( w \right)
+        \right\rangle \partial_z X^{\beta}\left( z \right) \partial_w
+        X^{\nu}\left( w \right) e^{i k \cdot X\left( w \right)} + \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\alpha}\left( z \right) \partial_w
+        X^{\nu}\left( w \right) \right\rangle \partial_z X^{\beta}\left( z
+        \right) \partial_w X^{\mu}\left( w \right) e^{i k \cdot X\left( w
+        \right)} + \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\alpha}\left( z \right) e^{i k
+        \cdot X\left( w \right)} \right\rangle \partial_z X^{\beta}\left( z
+        \right) \partial_w X^{\mu}\left( w \right) \partial_w X^{\nu}\left( w
+        \right) \right.
+        \\
+        &\left. + \left\langle \partial_z
+        X^{\beta}\left( z \right) \partial_w X^{\mu}\left( w \right)
+        \right\rangle \partial_z X^{\alpha}\left( z \right) \partial_w
+        X^{\nu}\left( w \right) e^{i k \cdot X\left( w \right)} + \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\beta}\left( z \right) \partial_w
+        X^{\nu}\left( w \right) \right\rangle \partial_z X^{\alpha}\left( z
+        \right) \partial_w X^{\mu}\left( w \right) e^{i k \cdot X\left( w
+        \right)} + \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\beta}\left( z \right) e^{i k
+        \cdot X\left( w \right)} \right\rangle \partial_z X^{\alpha}\left( z
+        \right) \partial_w X^{\mu}\left( w \right) \partial_w X^{\nu}\left( w
+        \right) + \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\alpha}\left( z \right) \partial_w
+        X^{\mu}\left( w \right) \right\rangle \left\langle \partial_z
+        X^{\beta}\left( z \right) \partial_w X^{\nu}\left( w \right)
+        \right\rangle e^{i k \cdot X\left( w \right)} \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\alpha}\left( z \right) \partial_w
+        X^{\nu}\left( w \right) \right\rangle \left\langle \partial_z
+        X^{\beta}\left( z \right) \partial_w X^{\mu}\left( w \right)
+        \right\rangle e^{i k \cdot X\left( w \right)} \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\alpha}\left( z \right) \partial_w
+        X^{\mu}\left( w \right) \right\rangle \left\langle \partial_z
+        X^{\beta}\left( z \right) e^{i k \cdot X\left( w \right)} \right\rangle
+        \partial_w X^{\nu}\left( w \right) + \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\alpha}\left( z \right) \partial_w
+        X^{\nu}\left( w \right) \right\rangle \left\langle \partial_z
+        X^{\beta}\left( z \right) e^{i k \cdot X\left( w \right)} \right\rangle
+        \partial_w X^{\mu}\left( w \right) + \right.
+        \\
+        &\left. + \left\langle \partial_z X^{\alpha}\left( z \right) e^{i k
+        \cdot X\left( w \right)} \right\rangle \left\langle \partial_z
+        X^{\beta}\left( z \right) e^{i k \cdot X\left( w \right)} \right\rangle
+        \partial_w X^{\mu}\left( w \right) \partial_w X^{\nu} \left( w \right)
+        \right) =
+        \\
+        &= \frac{1}{\left( z - w \right)^4} \eta^{\mu\nu} e^{i k \cdot X\left(
+        w \right)} + \frac{i}{\left( z - w \right)^3} k^{\left( \mu \right.}
+        \partial_w X^{\left. \nu \right)} e^{i k \cdot X\left( w \right)} +
+        \\
+        &+ \frac{1}{\left( z - w \right)^2} \left( \frac{1}{2} k^2 + 1 \right)
+        \partial_w X^{\mu}\left( w \right) \partial_w X^{\nu}\left( w \right) +
+        \\
+        &+ \frac{1}{z - w} \partial_w \left( \partial_w X^{\mu}\left( w \right)
+        \partial_w X^{\nu}\left( w \right) e^{i k \cdot X\left( w \right)}
+        \right) + \mathrm{O}\left( 1 \right)
+    \end{align*}
+
+    A similar treatment of $T\left( z \right) V^{\mu}\left( k, w \right)$,
+    where $V^{\mu}\left( k, w \right) = \partial^2_w X^{\mu}\left( w \right)
+    e^{i k \cdot X\left( w \right)}$, leads to the conditions for
+    \begin{equation*}
+        \xi_{\mu\nu} V^{\mu\nu}\left( k, w \right) + \xi_{\mu} V^{\mu}\left( k,
+        w \right)
+    \end{equation*}
+    to be a physical vertex operator (e.g.: $k^2 = -2$).
+\end{document}
